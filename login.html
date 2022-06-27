@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<style>
+   body{
+           background: linear-gradient(90deg,#C7C5F4,#776BCC);
+            
+        }
+        input[type=text], input[type=password] {
+            
+  width: 100%;
+  padding: 12px 20px; 
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid black;
+  box-sizing: border-box;
+  
+}
+        #container{
+            display: flex;
+            
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            border-radius: 2px solid black;
+            
+        }
+        #login{
+            margin-top: 20px;
+            margin-left: 60px;
+            background-color: white;
+            width:50%;
+            
+        }
+        h1{
+            text-align: center;
+        }
+        #link{
+            text-decoration: underline;
+            color: green;
+            display: flex;
+            text-align: center;
+        }
+        #link:hover{
+            cursor: pointer;
+         
+        }
+        form{
+            border: 2px solid black;
+            width: 25%;
+         padding: 10px;
+         background-color: white;
+         border-radius: 20px;
+        }
+        #login{
+          
+  background-color: #9900cc;
+  color: white;
+  padding: 14px 20px;
+  margin-left: 50px; ;
+  border: none;
+  cursor: pointer;
+  width: 70%;
+  margin-top: 50px;
+  
+}
+</style>
+<body>
+    
+    <div id="container">
+        <form>
+            <h1>Login</h1>
+        <p>Email</p>
+        <input type="text" id="email" type="email" placeholder="Enter Your Email" required>
+        <p>Password</p>
+        <input type="password" id="password" type="password" placeholder="Enter Your Password" required>
+        <br>
+        <input id="login" type="submit" value="login">
+
+        <br>
+        <br>
+        <br>
+        <p>Forget Password? <a id="link">Don't have an account?</a></p>
+    </form>
+    </div>
+</body>
+<script>
+    document.querySelector("form").addEventListener("submit",loginFn);
+    document.querySelector("#link").addEventListener("click",signupfn);
+    function signupfn(){
+        window.location.href="signup.html";
+    }
+
+    var registeredUsers = JSON.parse(localStorage.getItem("userdata"));
+    function loginFn() {
+        event.preventDefault();
+        var enteredEmail = document.querySelector("#email").value;
+        var enteredPassword = document.querySelector("#password").value;
+        registeredUsers.forEach(function(userData){
+            if(userData.email == enteredEmail && userData.password == enteredPassword) {
+                alert("LOGIN SUCCESS");
+            
+            } 
+            else {
+               alert("Incorrect Details");
+            }
+            
+        });
+    }
+
+    
+</script>
+</html>
