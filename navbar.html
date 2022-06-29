@@ -5,10 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> NavBar Page </title>
+    <style>
+        #parent {
+            background-color: black;
+            display: flex;
+            border-radius: 20px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+        }
+
+        #parent > div {
+            color: white;
+            margin: 20px;
+            padding-left:  10px;
+            padding-right: 10px;
+            cursor: pointer;
+        }
+
+        /*  flex grow is child property and used for set more space */
+        #parent :first-child {
+            flex-grow: 1;
+        }
+
+/*         #parent > div:hover {
+            color: red;
+            cursor: pointer;
+        } */
+
+    </style>
+
 </head>
 <body>
-    <h1> NavBar Page 
-        
-    </h1>
+    <div id="parent">
+        <div>Reebok</div>
+        <div>Men</div>
+        <div>Women</div>
+        <div>Login</div>
+        <div>Signup</div>
+    </div>
 </body>
 </html>
